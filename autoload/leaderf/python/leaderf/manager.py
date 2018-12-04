@@ -1143,7 +1143,10 @@ class Manager(object):
         self._cli.setRefineFeature(self._supportsRefine())
         lfCmd("echohl WarningMsg | redraw | echo ' searching ...' | echohl NONE")
         try:
-            content = self._getExplorer().getContent(*args, **kwargs)
+            if "--recall" in self._arguments:
+                content = self._content
+            else:
+                content = self._getExplorer().getContent(*args, **kwargs)
         except Exception as e:
             lfPrintError(e)
             return

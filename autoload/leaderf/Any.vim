@@ -120,6 +120,7 @@ let g:Lf_Arguments = {
             \               {"name": ["--current-buffer"], "nargs": 0, "help": "Searches in current buffer."},
             \               {"name": ["--all-buffers"], "nargs": 0, "help": "Searches in all listed buffers."},
             \           ],
+            \           {"name": ["--recall"], "nargs": 0, "help": "recall last search."},
             \   ],
             \}
 
