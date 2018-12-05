@@ -583,6 +583,9 @@ USAGE                                           *leaderf-usage*
 :LeaderfRgInteractive                           *LeaderfRgInteractive*
     Launch LeaderF to use rg interactively.
 
+:LeaderfRgRecall                                *LeaderfRgRecall*
+    Recall last search of rg.
+
 Once LeaderF is launched:                       *prompt* *leaderf-prompt*
     <C-C>, <ESC> : quit from LeaderF.
     <C-R> : switch between fuzzy search mode and regex mode.

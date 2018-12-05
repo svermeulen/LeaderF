@@ -229,13 +229,13 @@ Some handy maps for `Leaderf rg`:
 | `<Plug>LeaderfRgBangCwordRegexNoBoundary`    | like `<Plug>LeaderfRgCwordRegexNoBoundary`, but with a bang(`!`)
 | `<Plug>LeaderfRgCwordRegexBoundary`          | search word under cursor treated as regex with `-w` option
 | `<Plug>LeaderfRgBangCwordRegexBoundary`      | like `<Plug>LeaderfRgCwordRegexBoundary`, but with a bang(`!`)
-| `<Plug>LeaderfRgVisualLiteralNoBoundary`     | search visually selected words literally without `-w` option
+| `<Plug>LeaderfRgVisualLiteralNoBoundary`     | search visually selected text literally without `-w` option
 | `<Plug>LeaderfRgBangVisualLiteralNoBoundary` | like `<Plug>LeaderfRgVisualLiteralNoBoundary`, but with a bang(`!`)
-| `<Plug>LeaderfRgVisualLiteralBoundary`       | search visually selected words literally with `-w` option
+| `<Plug>LeaderfRgVisualLiteralBoundary`       | search visually selected text literally with `-w` option
 | `<Plug>LeaderfRgBangVisualLiteralBoundary`   | like `<Plug>LeaderfRgVisualLiteralBoundary`, but with a bang(`!`)
-| `<Plug>LeaderfRgVisualRegexNoBoundary`       | search visually selected words treated as regex without `-w` option
+| `<Plug>LeaderfRgVisualRegexNoBoundary`       | search visually selected text treated as regex without `-w` option
 | `<Plug>LeaderfRgBangVisualRegexNoBoundary`   | like `<Plug>LeaderfRgVisualRegexNoBoundary`, but with a bang(`!`)
-| `<Plug>LeaderfRgVisualRegexBoundary`         | search visually selected words treated as regex with `-w` option
+| `<Plug>LeaderfRgVisualRegexBoundary`         | search visually selected text treated as regex with `-w` option
 | `<Plug>LeaderfRgBangVisualRegexBoundary`     | like `<Plug>LeaderfRgVisualRegexBoundary`, but with a bang(`!`)
 
 You can also customize the map by yourself, e.g.,
@@ -243,6 +243,8 @@ You can also customize the map by yourself, e.g.,
 ```vim
 " search word under cursor literally only in current buffer
 noremap <C-B> :<C-U><C-R>=printf("Leaderf rg -F --current-buffer -e %s", expand("<cword>"))<CR>
+" search visually selected text and enter normal mode directly, don't quit LeaderF after accepting an entry
+xnoremap <C-G> :<C-U><C-R>=printf("Leaderf! rg -F --stayOpen -e %s", leaderf#Rg#visual())<CR>
 ```
 Once LeaderF is launched:
 
