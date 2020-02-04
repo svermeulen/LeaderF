@@ -570,14 +570,14 @@ function! s:InitCommandMap(var, dict)
                     call filter(tmp, '!empty(filter(tmp[v:key], "v:val !=? i"))')
                 endif
             endfor
-            let tmp[toupper(key)] = map(value, 'toupper(v:val)')
+            let tmp[key] = map(value, 'v:val')
         endfor
         exec 'let '.a:var.'='.string(tmp)
     endif
     let g:Lf_KeyDict = {}
     for [key, val] in items(eval(a:var))
         for i in val
-            let g:Lf_KeyDict[toupper(i)] = toupper(key)
+            let g:Lf_KeyDict[i] = key
         endfor
     endfor
 endfunction
